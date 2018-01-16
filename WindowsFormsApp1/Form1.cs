@@ -20,7 +20,8 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = BigLongImportantMethod("John");
+            Task.Factory.StartNew(() => BigLongImportantMethod("Sally")).ContinueWith(t => label1.Text = t.Result);
+            //label1.Text = BigLongImportantMethod("John");
         }
 
         private string BigLongImportantMethod(string name)
