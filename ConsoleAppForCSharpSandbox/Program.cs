@@ -13,7 +13,7 @@ namespace ConsoleAppForCSharpSandbox
         {
             var intList = new List<int> { 1, 2, 7, 9, 10, 12, 3, 6, 1, 4, 5, 8, 42, 3 };
 
-            Parallel.ForEach(intList, (i) => Console.WriteLine(i));
+            Parallel.For(0, 100, (i) => Console.WriteLine(i));
 
             Console.WriteLine("Press any key to quit");
             Console.ReadKey();
