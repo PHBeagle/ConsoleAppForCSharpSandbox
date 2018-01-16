@@ -11,23 +11,47 @@ namespace ConsoleAppForCSharpSandbox
     {
         static void Main(string[] args)
         {
-            var intList = new List<int> { 1, 2, 7, 9, 10, 12, 3, 6, 1, 4, 5, 8, 42, 3 };
+            var source = new CancellationTokenSource();
 
-            Parallel.For(0, 100, (i) => Console.WriteLine(i));
+            try
+            {
+                var t1 = Task.Factory.StartNew(() => DoWork(1, 2000, source.Token)).ContinueWith((prevTask) => DoAdditionalWork(1, 3000, source.Token));
+
+                // Slow down screen some so that you can see the message before cancel.
+                Thread.Sleep(1000);
+                Console.WriteLine("Abort! Abort! Abort!  Cancelling NOW");
+                source.Cancel();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.GetType());
+            }            
 
             Console.WriteLine("Press any key to quit");
             Console.ReadKey();
         }
 
-        static void DoWork(int id, int sleepTime)
+        static void DoWork(int id, int sleepTime, CancellationToken token)
         {
+            if (token.IsCancellationRequested)
+            {
+                Console.WriteLine("Cancellation requested.");
+                token.ThrowIfCancellationRequested();
+            }
+
             Console.WriteLine($"task {id} is beginning");
             Thread.Sleep(sleepTime);
             Console.WriteLine($"task {id} has completed");
         }
 
-        static void DoAdditionalWork(int id, int sleepTime)
+        static void DoAdditionalWork(int id, int sleepTime, CancellationToken token)
         {
+            if (token.IsCancellationRequested)
+            {
+                Console.WriteLine("Cancellation requested.");
+                token.ThrowIfCancellationRequested();
+            }
+
             Console.WriteLine($"task {id} is beginning additional work");
             Thread.Sleep(sleepTime);
             Console.WriteLine($"task {id} has completed additional work");
