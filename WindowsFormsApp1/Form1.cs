@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    // Code from tuts+ YouTube video at https://www.youtube.com/watch?v=DqjIQiZ_ql4
+
     public partial class Form1 : Form
     {
         public Form1()
