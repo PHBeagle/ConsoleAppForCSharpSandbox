@@ -15,9 +15,15 @@ namespace ConsoleAppForCSharpSandbox
             var t2 = Task.Factory.StartNew(() => DoWork(2, 3000));
             var t3 = Task.Factory.StartNew(() => DoWork(3, 1000));
 
-            var taskList = new List<Task> { t1, t2, t3 };
+            //var taskList = new List<Task> { t1, t2, t3 };
+            //Task.WaitAll(taskList.ToArray());
 
-            Task.WaitAll(taskList.ToArray());
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Doing some other work");
+                Thread.Sleep(250);
+                Console.WriteLine($"i = {i}");
+            }
 
             Console.WriteLine("Press any key to quit");
             Console.ReadKey();
