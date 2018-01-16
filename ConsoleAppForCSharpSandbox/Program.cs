@@ -11,15 +11,18 @@ namespace ConsoleAppForCSharpSandbox
     {
         static void Main(string[] args)
         {
-            var t1 = new Task(() => {
-                Console.WriteLine("task 1 is beginning");
-                Thread.Sleep(1000);
-                Console.WriteLine("task 1 has completed");
-            });
+            var t1 = new Task(() => DoWork(1, 1500));
             t1.Start();
 
             Console.WriteLine("Press any key to quit");
             Console.ReadKey();
+        }
+
+        static void DoWork(int id, int sleepTime)
+        {
+            Console.WriteLine($"task {id} is beginning");
+            Thread.Sleep(sleepTime);
+            Console.WriteLine($"task {id} has completed");
         }
     }
 }
