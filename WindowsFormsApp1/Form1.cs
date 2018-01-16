@@ -20,7 +20,20 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Task.Factory.StartNew(() => BigLongImportantMethod("Sally")).ContinueWith(t => label1.Text = t.Result, TaskScheduler.FromCurrentSynchronizationContext());
+            //Task.Factory.StartNew(() => BigLongImportantMethod("Sally")).ContinueWith(t => label1.Text = t.Result, TaskScheduler.FromCurrentSynchronizationContext());
+            CallBigImportantMethod();
+            label1.Text = "Waiting...";
+        }
+
+        private async void CallBigImportantMethod()
+        {
+            var result = await BigLongImportantMethodAsync("Andrew");
+            label1.Text = result;
+        }
+
+        private Task<string> BigLongImportantMethodAsync(string name)
+        {
+            return Task.Factory.StartNew(() => BigLongImportantMethod(name));
         }
 
         private string BigLongImportantMethod(string name)
