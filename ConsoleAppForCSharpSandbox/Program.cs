@@ -12,8 +12,8 @@ namespace ConsoleAppForCSharpSandbox
         static void Main(string[] args)
         {
             Task.Factory.StartNew(() => DoWork(1, 1500)).ContinueWith((prevTask) => DoAdditionalWork(1, 1000)).ContinueWith((anotherTask) => DoAdditionalWork(1, 4000));
-            Task.Factory.StartNew(() => DoWork(2, 3000));
-            Task.Factory.StartNew(() => DoWork(3, 1000));
+            Task.Factory.StartNew(() => DoWork(2, 3000)).ContinueWith((prevTask) => DoAdditionalWork(2, 2000));
+            Task.Factory.StartNew(() => DoWork(3, 1000)).ContinueWith((prevTask) => DoAdditionalWork(3, 750));
 
             Console.WriteLine("Press any key to quit");
             Console.ReadKey();
