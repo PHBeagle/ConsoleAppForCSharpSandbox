@@ -11,7 +11,7 @@ namespace ConsoleAppForCSharpSandbox
     {
         static void Main(string[] args)
         {
-            Task.Factory.StartNew(() => DoWork(1, 1500));
+            Task.Factory.StartNew(() => DoWork(1, 1500)).ContinueWith((prevTask) => DoAdditionalWork(1, 1000));
             Task.Factory.StartNew(() => DoWork(2, 3000));
             Task.Factory.StartNew(() => DoWork(3, 1000));
 
@@ -24,6 +24,13 @@ namespace ConsoleAppForCSharpSandbox
             Console.WriteLine($"task {id} is beginning");
             Thread.Sleep(sleepTime);
             Console.WriteLine($"task {id} has completed");
+        }
+
+        static void DoAdditionalWork(int id, int sleepTime)
+        {
+            Console.WriteLine($"task {id} is beginning additional work");
+            Thread.Sleep(sleepTime);
+            Console.WriteLine($"task {id} has completed additional work");
         }
     }
 }
