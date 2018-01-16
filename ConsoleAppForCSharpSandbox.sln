@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppForCSharpSandbox", "ConsoleAppForCSharpSandbox\ConsoleAppForCSharpSandbox.csproj", "{5C08BE2A-C14C-4554-9543-0D87CFB56D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{B16C2B5F-8810-4FD6-82B8-9A15924339C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5C08BE2A-C14C-4554-9543-0D87CFB56D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C08BE2A-C14C-4554-9543-0D87CFB56D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C08BE2A-C14C-4554-9543-0D87CFB56D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16C2B5F-8810-4FD6-82B8-9A15924339C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16C2B5F-8810-4FD6-82B8-9A15924339C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16C2B5F-8810-4FD6-82B8-9A15924339C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16C2B5F-8810-4FD6-82B8-9A15924339C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
