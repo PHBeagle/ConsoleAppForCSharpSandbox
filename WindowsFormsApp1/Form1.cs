@@ -20,7 +20,6 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Task.Factory.StartNew(() => BigLongImportantMethod("Sally")).ContinueWith(t => label1.Text = t.Result, TaskScheduler.FromCurrentSynchronizationContext());
             CallBigImportantMethod();
             label1.Text = "Waiting...";
         }
