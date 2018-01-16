@@ -14,6 +14,12 @@ namespace ConsoleAppForCSharpSandbox
             var t1 = new Task(() => DoWork(1, 1500));
             t1.Start();
 
+            var t2 = new Task(() => DoWork(2, 3000));
+            t2.Start();
+
+            var t3 = new Task(() => DoWork(3, 100));
+            t3.Start();
+
             Console.WriteLine("Press any key to quit");
             Console.ReadKey();
         }
